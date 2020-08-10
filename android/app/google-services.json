@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "116780074536",
+    "firebase_url": "https://eagleeye-dev.firebaseio.com",
+    "project_id": "eagleeye-dev",
+    "storage_bucket": "eagleeye-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116780074536:android:1373c824e4c5aa502b971d",
+        "android_client_info": {
+          "package_name": "com.ifela.ifela"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116780074536-qvnqi5f2m11garjepp3mp0j410agcoe7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ifela.ifela",
+            "certificate_hash": "9f37903e1f240a50275f5b75a3675faf0a49629c"
+          }
+        },
+        {
+          "client_id": "116780074536-4k2gq44egs8t9umfr2uj89uijs86tgoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCi0qg1wdVa160IS4psB-lPFVmR3n7lJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116780074536-4k2gq44egs8t9umfr2uj89uijs86tgoc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "116780074536-k1m2lodktb6p9ooi0om1oj7eanvr9qph.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ifela.ifela"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
