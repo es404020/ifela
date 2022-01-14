@@ -1,13 +1,12 @@
-import 'package:audio_service/audio_service.dart';
 
-import 'package:audioplayers/audioplayers.dart';
-import 'package:autostart/autostart.dart';
+
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_startup/flutter_startup.dart';
+
 
 import 'package:ifela/auth.dart';
 
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
 
           textTheme: TextTheme(
 
-            headline: TextStyle(fontFamily: 'ok'),
+          //  headline: TextStyle(fontFamily: 'ok'),
           ),
         ),
         // initialRoute:AuthPage.id,
@@ -66,8 +65,7 @@ class MyApp extends StatelessWidget {
 //            until: () => Future.delayed(Duration(seconds: 5)),
           //  sta MyHomePage(title: 'hello')
         //theme: ThemeData(colorScheme: const ColorScheme.light( primary: Color(0xFF0D47A1)),fontFamily: 'Raleway' ),
-        home:   AudioServiceWidget(
-          child: SplashScreen.navigate(next:(context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        home: SplashScreen.navigate(next:(context) => MyHomePage(title: 'Flutter Demo Home Page'),
             until: () => Future.delayed(Duration(seconds: 4)),
             name: 'images/i.flr',
             startAnimation:'work' ,
@@ -77,10 +75,10 @@ class MyApp extends StatelessWidget {
 
 
           ),
-        ),
 
 
-        onGenerateRoute: Router.generateRoute,
+
+        onGenerateRoute: Routers.generateRoute,
       ),
     );
   }
@@ -100,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static FirebaseInAppMessaging fiam = FirebaseInAppMessaging();
 
 
-  AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
+
 
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 

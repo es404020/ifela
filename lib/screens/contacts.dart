@@ -77,7 +77,7 @@ class _ContactState extends State<Contact> {
                   Container(
                     margin: EdgeInsets.only(bottom: 45.0),
                     child: AutoSizeText(
-                  'Would you like to add a contact?.This contact must be already  registerd on the ifela platform.',
+                  'Would you like to add a contact?.This contact must be already  registerd on the Doctor Avail platform.',
                       style: TextStyle(color: Colors.white),
 
                     ),
@@ -88,7 +88,7 @@ class _ContactState extends State<Contact> {
                     key: _k1,
                     controller: myController,
                     inputFormatters: <TextInputFormatter>[
-                      WhitelistingTextInputFormatter.digitsOnly,
+                      //WhitelistingTextInputFormatter.digitsOnly,
                       _mobileFormatter,
                     ],
                     keyboardType: TextInputType.number,

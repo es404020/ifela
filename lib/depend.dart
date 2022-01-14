@@ -19,7 +19,7 @@ export 'package:shimmer/shimmer.dart';
 export 'package:provider/provider.dart';
 export 'package:flashy_tab_bar/flashy_tab_bar.dart';
 export 'package:firebase_storage/firebase_storage.dart';
-export 'package:gradient_app_bar/gradient_app_bar.dart';
+
 export 'package:progress_dialog/progress_dialog.dart';
 export 'package:image_cropper/image_cropper.dart';
 export 'package:image_picker/image_picker.dart';
@@ -30,7 +30,7 @@ export 'package:cached_network_image/cached_network_image.dart';
 export 'dart:math' show Random;
 export 'package:tutorial_coach_mark/animated_focus_light.dart';
 export 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
-export 'package:flutter_calendar/flutter_calendar.dart';
+
 export 'package:cloud_functions/cloud_functions.dart';
 export 'package:auto_size_text/auto_size_text.dart';
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -41,12 +41,12 @@ export 'package:badges/badges.dart';
 export 'package:line_awesome_flutter/line_awesome_flutter.dart';
 export 'package:async/async.dart';
 export 'dart:collection';
-export 'package:geocoder/geocoder.dart';
+
 export 'dart:async';
 export 'package:location/location.dart';
 export 'package:shake/shake.dart';
 export 'package:vibration/vibration.dart';
-export 'package:autostart/autostart.dart';
+
 //export 'package:keyboard_avoider/keyboard_avoider.dart';
 export 'package:full_screen_image/full_screen_image.dart';
 export 'package:focused_menu/focused_menu.dart';

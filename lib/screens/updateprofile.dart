@@ -57,8 +57,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
         messageTextStyle: TextStyle(
             color: Colors.black, fontSize: 19.0, fontWeight: FontWeight.w600));
     return Scaffold(
-      appBar: GradientAppBar(
-        gradient: blackGradient,
+      appBar:AppBar(
+
         title: Text(
           "Edit profile",
           style: TextStyle(fontSize: 18.0),

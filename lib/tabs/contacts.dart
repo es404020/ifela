@@ -41,7 +41,7 @@ class _ChatState extends State<Contacts> {
     return Scaffold(
 
       key: _formKey,
-       resizeToAvoidBottomPadding: true,
+      // resizeToAvoidBottomPadding: true,
        resizeToAvoidBottomInset: false,
        backgroundColor: Color(0xff171719),
       body: Container(

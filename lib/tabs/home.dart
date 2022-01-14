@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_audio_recorder/flutter_audio_recorder.dart';
+
 import 'package:focused_menu/modals.dart';
 import 'dart:io' as io;
 import 'package:ifela/depend.dart';
@@ -22,9 +22,7 @@ class _HomePageState extends State<HomeTab>
   GlobalKey keyButton4 = GlobalKey();
   GlobalKey keyButton5 = GlobalKey();
   var dateToday = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString() ;
-  FlutterAudioRecorder _recorder;
-  Recording _current;
-  RecordingStatus _currentStatus = RecordingStatus.Unset;
+
 //*-----defining animation and animation controller-----*
   AnimationController _controller;
   Animation _myAnimation;
@@ -136,20 +134,20 @@ class _HomePageState extends State<HomeTab>
                         ],
                       ),
                     ),
-                    DefaultTextStyle(
-                      key: keyButton4,
-                      style: TextStyle(color: Colors.blue),
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 1),
-                        child: new Calendar(onDateSelected: (s){
-
-                          DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(s.toString());
-                        setState(() {
-                          dateToday=tempDate.toString();
-                        });
-                        },),
-                      ),
-                    )
+//                    DefaultTextStyle(
+//                      key: keyButton4,
+//                      style: TextStyle(color: Colors.blue),
+//                      child: Container(
+//                        margin: EdgeInsets.only(bottom: 1),
+//                        child: new Calendar(onDateSelected: (s){
+//
+//                          DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(s.toString());
+//                        setState(() {
+//                          dateToday=tempDate.toString();
+//                        });
+//                        },),
+//                      ),
+//                    )
                   ],
                 ),
               )),
@@ -190,13 +188,13 @@ class _HomePageState extends State<HomeTab>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Community police",
+                                      " Health Center",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white),
                                     ),
                                     Text(
-                                      "Register your landlord association.",
+                                      "Be part of a community.",
                                       style: kSubheadingextStyle,
                                     )
                                   ],
@@ -266,7 +264,7 @@ class _HomePageState extends State<HomeTab>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Welcome to Ifela ",
+                    "Welcome to Doctor Avail ",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -275,7 +273,7 @@ class _HomePageState extends State<HomeTab>
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Text(
-                      "We have come together to modernize how people see security through .",
+                      "FInd the nearest hospitial close to you.",
                       style: TextStyle(color: Colors.white70),
                     ),
                   ),
@@ -533,89 +531,89 @@ return id.split('T')[0].toString()+' '+'00:00:00.000'==dateToday.toString();
   }
 
   _init() async {
-    try {
-      if (await FlutterAudioRecorder.hasPermissions) {
-        String customPath = '/flutter_audio_recorder_';
-        io.Directory appDocDirectory;
-//        io.Directory appDocDirectory = await getApplicationDocumentsDirectory();
-        if (io.Platform.isIOS) {
-          appDocDirectory = await getApplicationDocumentsDirectory();
-        } else {
-          appDocDirectory = await getExternalStorageDirectory();
-        }
-
-        // can add extension like ".mp4" ".wav" ".m4a" ".aac"
-        customPath = appDocDirectory.path +
-            customPath +
-            DateTime.now().millisecondsSinceEpoch.toString();
-
-        // .wav <---> AudioFormat.WAV
-        // .mp4 .m4a .aac <---> AudioFormat.AAC
-        // AudioFormat is optional, if given value, will overwrite path extension when there is conflicts.
-        _recorder =
-            FlutterAudioRecorder(customPath, audioFormat: AudioFormat.WAV);
-
-        await _recorder.initialized;
-        // after initialization
-        var current = await _recorder.current(channel: 0);
-        print(current);
-        // should be "Initialized", if all working fine
-        setState(() {
-          _current = current;
-          _currentStatus = current.status;
-          print(_currentStatus);
-        });
-      } else {
-        Scaffold.of(context).showSnackBar(
-            new SnackBar(content: new Text("You must accept permissions")));
-      }
-    } catch (e) {
-      print(e);
-    }
+//    try {
+//      if (await FlutterAudioRecorder.hasPermissions) {
+//        String customPath = '/flutter_audio_recorder_';
+//        io.Directory appDocDirectory;
+////        io.Directory appDocDirectory = await getApplicationDocumentsDirectory();
+//        if (io.Platform.isIOS) {
+//          appDocDirectory = await getApplicationDocumentsDirectory();
+//        } else {
+//          appDocDirectory = await getExternalStorageDirectory();
+//        }
+//
+//        // can add extension like ".mp4" ".wav" ".m4a" ".aac"
+//        customPath = appDocDirectory.path +
+//            customPath +
+//            DateTime.now().millisecondsSinceEpoch.toString();
+//
+//        // .wav <---> AudioFormat.WAV
+//        // .mp4 .m4a .aac <---> AudioFormat.AAC
+//        // AudioFormat is optional, if given value, will overwrite path extension when there is conflicts.
+//        _recorder =
+//            FlutterAudioRecorder(customPath, audioFormat: AudioFormat.WAV);
+//
+//        await _recorder.initialized;
+//        // after initialization
+//        var current = await _recorder.current(channel: 0);
+//        print(current);
+//        // should be "Initialized", if all working fine
+//        setState(() {
+//          _current = current;
+//          _currentStatus = current.status;
+//          print(_currentStatus);
+//        });
+//      } else {
+//        Scaffold.of(context).showSnackBar(
+//            new SnackBar(content: new Text("You must accept permissions")));
+//      }
+//    } catch (e) {
+//      print(e);
+//    }
   }
   _start() async {
-    try {
-      await _recorder.start();
-      var recording = await _recorder.current(channel: 0);
-      setState(() {
-        _current = recording;
-      });
-
-      const tick = const Duration(milliseconds: 50);
-      new Timer.periodic(tick, (Timer t) async {
-        if (_currentStatus == RecordingStatus.Stopped) {
-          t.cancel();
-        }
-
-        var current = await _recorder.current(channel: 0);
-         print(current.status);
-
-        Fluttertoast.showToast(
-            msg:
-            'current',
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.black,
-            textColor: Colors.white,
-            fontSize: 16.0);
-        setState(() {
-          _current = current;
-          _currentStatus = _current.status;
-        });
-      });
-    } catch (e) {
-      print(e);
-    }
+//    try {
+//      await _recorder.start();
+//      var recording = await _recorder.current(channel: 0);
+//      setState(() {
+//        _current = recording;
+//      });
+//
+//      const tick = const Duration(milliseconds: 50);
+//      new Timer.periodic(tick, (Timer t) async {
+//        if (_currentStatus == RecordingStatus.Stopped) {
+//          t.cancel();
+//        }
+//
+//        var current = await _recorder.current(channel: 0);
+//         print(current.status);
+//
+//        Fluttertoast.showToast(
+//            msg:
+//            'current',
+//            toastLength: Toast.LENGTH_LONG,
+//            gravity: ToastGravity.CENTER,
+//            timeInSecForIosWeb: 1,
+//            backgroundColor: Colors.black,
+//            textColor: Colors.white,
+//            fontSize: 16.0);
+//        setState(() {
+//          _current = current;
+//          _currentStatus = _current.status;
+//        });
+//      });
+//    } catch (e) {
+//      print(e);
+//    }
   }
 
   _resume() async {
-    await _recorder.resume();
+   // await _recorder.resume();
     setState(() {});
   }
 
   _pause() async {
-    await _recorder.pause();
+   // await _recorder.pause();
     setState(() {});
   }
 

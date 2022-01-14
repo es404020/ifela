@@ -26,8 +26,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.gms.google-services'
-Project background_geolocation = project(':flutter_background_geolocation')
-apply from: "${background_geolocation.projectDir}/background_geolocation.gradle"
+//Project background_geolocation = project(':flutter_background_geolocation')
+//apply from: "${background_geolocation.projectDir}/background_geolocation.gradle"
 android {
     compileSdkVersion 28
 
@@ -58,7 +58,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled true
             shrinkResources false
-            proguardFiles "${background_geolocation.projectDir}/proguard-rules.pro"
+           // proguardFiles "${background_geolocation.projectDir}/proguard-rules.pro"
         }
     }
 }
@@ -66,7 +66,11 @@ android {
 flutter {
     source '../..'
 }
-
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.android.gms:play-services-location:16.0.0'
+    }
+}
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
@@ -79,6 +83,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.google.android.libraries.places:places:2.2.0'
+
 
 }
 

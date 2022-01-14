@@ -8,7 +8,7 @@ import 'package:ifela/settings/pendingcontact.dart';
 import 'package:ifela/tabs/chat.dart';
 import 'package:ifela/tabs/settings.dart';
 
-class Router {
+class Routers {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 

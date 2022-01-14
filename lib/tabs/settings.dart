@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ifela/depend.dart';
-import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
-    as bg;
-import 'package:background_geolocation_firebase/background_geolocation_firebase.dart';
-import 'package:flutter_background_geolocation/flutter_background_geolocation.dart' as bg;
+//import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
+//    as bg;
+//import 'package:background_geolocation_firebase/background_geolocation_firebase.dart';
+//import 'package:flutter_background_geolocation/flutter_background_geolocation.dart' as bg;
 
 class Settings extends StatefulWidget {
   static const id = '/settings';
@@ -278,24 +278,24 @@ class _SettingsState extends State<Settings> {
   }
 
   _address(coord) async {
-    final coordinates = new Coordinates(coord?.latitude, coord?.longitude);
+  //  final coordinates = new Coordinates(coord?.latitude, coord?.longitude);
 
-    try {
-      var addresses =
-          await Geocoder.google('AIzaSyB2YdTgWF1T5TmYdTDPA-3FpkiDoSnpsaU').findAddressesFromCoordinates(coordinates);
-      var first = addresses.first;
-//    Fluttertoast.showToast(
-//        msg: 'My location:${first.addressLine},${first.locality},${first.countryName}',
-//        toastLength: Toast.LENGTH_LONG,
-//        gravity: ToastGravity.CENTER,
-//        timeInSecForIosWeb: 1,
-//        backgroundColor: Colors.black,
-//        textColor: Colors.white,
-//        fontSize: 16.0);
-      address = first.addressLine;
-    } catch (err) {
-      print(err);
-    }
+//    try {
+//      var addresses =
+//          await Geocoder.google('AIzaSyB2YdTgWF1T5TmYdTDPA-3FpkiDoSnpsaU').findAddressesFromCoordinates(coordinates);
+//      var first = addresses.first;
+////    Fluttertoast.showToast(
+////        msg: 'My location:${first.addressLine},${first.locality},${first.countryName}',
+////        toastLength: Toast.LENGTH_LONG,
+////        gravity: ToastGravity.CENTER,
+////        timeInSecForIosWeb: 1,
+////        backgroundColor: Colors.black,
+////        textColor: Colors.white,
+////        fontSize: 16.0);
+//      address = first.addressLine;
+//    } catch (err) {
+//      print(err);
+//    }
   }
 
   _setMarker(currentpostion) {
@@ -312,55 +312,55 @@ class _SettingsState extends State<Settings> {
 
   void checkAutoStartManager(BuildContext context) async {
     print('hell');
-    Autostart.getAutoStartPermission();
+    //Autostart.getAutoStartPermission();
 
   }
 
 
   void _onClickEnable(enabled) {
-    setState(() {
-      _enabled = enabled;
-    });
-
-    if (enabled) {
-      bg.BackgroundGeolocation.start();
-    } else {
-      bg.BackgroundGeolocation.stop();
-    }
+//    setState(() {
+//      _enabled = enabled;
+//    });
+//
+//    if (enabled) {
+//      bg.BackgroundGeolocation.start();
+//    } else {
+//      bg.BackgroundGeolocation.stop();
+//    }
   }
 
   Future<void> initPlatformState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var user  =  await prefs.getString('UID');
-
-    bg.BackgroundGeolocation.onLocation((bg.Location location) {
-      print('[location] $location');
-      setState(() {
-        locat = location.coords;
-      //  _locationJSON = _encoder.convert(location.toMap());
-
-
-      });
-    });
-
-    BackgroundGeolocationFirebase.configure(BackgroundGeolocationFirebaseConfig(
-        locationsCollection: "/users/${user}/locations",
-        geofencesCollection: "geofences",
-        updateSingleDocument: false
-    ));
-
-    bg.BackgroundGeolocation.ready(bg.Config(
-        debug: true,
-        distanceFilter: 100,
-        logLevel: bg.Config.LOG_LEVEL_VERBOSE,
-        stopTimeout: 1,
-        stopOnTerminate: false,
-        startOnBoot: true
-    )).then((bg.State state) {
-      setState(() {
-        _enabled = state.enabled;
-      });
-    });
+//    SharedPreferences prefs = await SharedPreferences.getInstance();
+//    var user  =  await prefs.getString('UID');
+//
+//    bg.BackgroundGeolocation.onLocation((bg.Location location) {
+//      print('[location] $location');
+//      setState(() {
+//        locat = location.coords;
+//      //  _locationJSON = _encoder.convert(location.toMap());
+//
+//
+//      });
+//    });
+//
+//    BackgroundGeolocationFirebase.configure(BackgroundGeolocationFirebaseConfig(
+//        locationsCollection: "/users/${user}/locations",
+//        geofencesCollection: "geofences",
+//        updateSingleDocument: false
+//    ));
+//
+//    bg.BackgroundGeolocation.ready(bg.Config(
+//        debug: true,
+//        distanceFilter: 100,
+//        logLevel: bg.Config.LOG_LEVEL_VERBOSE,
+//        stopTimeout: 1,
+//        stopOnTerminate: false,
+//        startOnBoot: true
+//    )).then((bg.State state) {
+//      setState(() {
+//        _enabled = state.enabled;
+//      });
+//    });
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling

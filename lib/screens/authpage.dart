@@ -73,12 +73,7 @@ class _AuthPageState extends State<AuthPage> {
                             height: MediaQuery.of(context).size.height * 0.5,
                             child:
 
-                            FlareActor(
-                              'images/ifela.flr',
-                              alignment: Alignment.center,
-                              fit: BoxFit.cover,
-                              animation: 'start',
-                            )
+                            Image.asset('images/download.jpeg', alignment: Alignment.center,fit: BoxFit.cover,)
 
 //                            FlareActor(
 //                              'images/ifela.flr',
@@ -92,7 +87,7 @@ class _AuthPageState extends State<AuthPage> {
                           margin:
                               EdgeInsets.only(top: 10, left: 30, bottom: 20),
                           child: Text(
-                            'Realtime Tracking',
+                            'Doctor Avail',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w700,
@@ -106,7 +101,7 @@ class _AuthPageState extends State<AuthPage> {
                               right: 30,
                             ),
                             child: AutoSizeText(
-                              'Where we help monitor and track your everyday movement, notifying your contact person whenever you request for help or you get into trouble . The world is plagued with insecurity but, we are implementing a modern way to stay safe amidst the insecurity.',
+                              'Quest medical help at anytime and at any given  place  .',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -160,7 +155,14 @@ class _AuthPageState extends State<AuthPage> {
                         blendMode: BlendMode.dstIn,
                         child: Container(
                             height: MediaQuery.of(context).size.height * 0.5,
-                            child:Image.asset('images/police.jpg', alignment: Alignment.center,fit: BoxFit.cover,)
+                            child:
+                            //Image.asset('images/police.jpg', alignment: Alignment.center,fit: BoxFit.cover,)
+                            FlareActor(
+                              'images/ifela.flr',
+                              alignment: Alignment.center,
+                              fit: BoxFit.cover,
+                              animation: 'start',
+                            )
 
 
 //                            FlareActor(
@@ -175,7 +177,7 @@ class _AuthPageState extends State<AuthPage> {
                           margin:
                           EdgeInsets.only(top: 10, left: 30, bottom: 20),
                           child: Text(
-                            'Red Zone Trigger',
+                            'Advance Geolocation',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w700,
@@ -189,7 +191,7 @@ class _AuthPageState extends State<AuthPage> {
                               right: 30,
                             ),
                             child: AutoSizeText(
-                              'All police are to be subject to continuous and effective reporting and review proceduresPolice shall develop strategies for law enforcement which are effective, lawful and respectful of human rights',
+                              'We provide geolocation which enable you find the nearest health care center close to you ',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -258,7 +260,7 @@ class _AuthPageState extends State<AuthPage> {
                           margin:
                           EdgeInsets.only(top: 10, left: 30, bottom: 20),
                           child: Text(
-                            'Shake To Alert',
+                            'Meet medical expert',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w700,
@@ -272,7 +274,7 @@ class _AuthPageState extends State<AuthPage> {
                               right: 30,
                             ),
                             child: AutoSizeText(
-                              'According to statistics, 60 percent of sexual assault incidents are not reported to authorities. Many instances of rape occur at the perpetrator’s place of business, including cases of sexual assault by a supervisor, co-worker or client.',
+                              'We provide medical consultation through video call and chat',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -354,7 +356,7 @@ class _AuthPageState extends State<AuthPage> {
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.center,
                                 inputFormatters: <TextInputFormatter>[
-                                  WhitelistingTextInputFormatter.digitsOnly,
+                                FilteringTextInputFormatter.digitsOnly,
                                   _mobileFormatter,
                                 ],
                                 keyboardType: TextInputType.number,
@@ -480,7 +482,7 @@ class _AuthPageState extends State<AuthPage> {
 
     Navigator.push(
         context,
-        Router.sharedAxis(
+        Routers.sharedAxis(
             () => HomePage(
                   ids: false,
                 ),

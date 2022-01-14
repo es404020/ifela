@@ -46,8 +46,8 @@ class _EditProfileState extends State<EditProfile> {
     uid = user?.uid;
     phoneNo = user?.phoneNumber;
     return Scaffold(
-      appBar: GradientAppBar(
-        gradient: blackGradient,
+      appBar: AppBar(
+
         title: widget.ids
             ? Text(
                 "New Profile",

@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import  'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geocoder/geocoder.dart';
+
 import 'package:ifela/constants.dart';
 import 'package:ifela/depend.dart';
 import 'package:shimmer/shimmer.dart';
@@ -602,31 +602,31 @@ class _TimeLineState extends State<TimeLine> {
 
 
   _address(lon,lat) async {
-    final coordinates = new Coordinates(lat,lon);
-
-    try {
-      var addresses =
-      await Geocoder.google('AIzaSyB2YdTgWF1T5TmYdTDPA-3FpkiDoSnpsaU').findAddressesFromCoordinates(coordinates);
-      var first = addresses.first;
-setState(() {
-  address='My location:${first.addressLine},${first.locality},${first.countryName}';
-});
-
-
-
-
-
-//    Fluttertoast.showToast(
-//        msg: 'My location:${first.addressLine},${first.locality},${first.countryName}',
-//        toastLength: Toast.LENGTH_LONG,
-//        gravity: ToastGravity.CENTER,
-//        timeInSecForIosWeb: 1,
-//        backgroundColor: Colors.black,
-//        textColor: Colors.white,
-//        fontSize: 16.0);
-
-    } catch (err) {
-      print(err);
-    }
+  //  final coordinates = new Coordinates(lat,lon);
+//
+//    try {
+//      var addresses =
+//      await Geocoder.google('AIzaSyB2YdTgWF1T5TmYdTDPA-3FpkiDoSnpsaU').findAddressesFromCoordinates(coordinates);
+//      var first = addresses.first;
+//setState(() {
+//  address='My location:${first.addressLine},${first.locality},${first.countryName}';
+//});
+//
+//
+//
+//
+//
+////    Fluttertoast.showToast(
+////        msg: 'My location:${first.addressLine},${first.locality},${first.countryName}',
+////        toastLength: Toast.LENGTH_LONG,
+////        gravity: ToastGravity.CENTER,
+////        timeInSecForIosWeb: 1,
+////        backgroundColor: Colors.black,
+////        textColor: Colors.white,
+////        fontSize: 16.0);
+//
+//    } catch (err) {
+//      print(err);
+//    }
   }
 }
